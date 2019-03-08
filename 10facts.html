@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Who's Hugh?</title>
+    <!-- STYLE -->
+    <style>
+
+        article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+        
+        .clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+        
+        * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .heroImage {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            max-width: 100%;
+            width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .mainHeader {
+            color: #ddd;
+            text-transform: uppercase;
+            position: absolute;
+            left: 30px;
+            font-size: 3rem;
+            z-index: 200;
+        }
+
+        .mainHeader span {
+            color: darkcyan;
+        }
+
+        .welcomeSlide {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            position: relative;
+            background-color: #000;
+        }
+
+        .slideWrapper {
+            width: 4%;
+            height: 100vh;
+            position: relative;
+            background-color: #111;
+        }
+
+       
+
+        .slideShowWrapper {
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            width: 2500%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .buttonContainer {
+            position: absolute;
+            width: 100%;
+            bottom: -40px;
+            z-index: 100;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background-color: darkcyan;
+            transition: all .3s;
+        }
+
+        .button--prev {
+            border-radius: 0 0 40px  0;
+        }
+        .button--next {
+            border-radius: 0 0 0 40px;
+        }
+
+        .number {
+            position: absolute;
+            font-size: 4rem;
+            bottom: 5px;
+            left: 10px;
+            margin: 0;
+            color: darkcyan;
+        }
+
+        .textContainer {
+            /* border: 1px solid black; */
+            background-color: #fff;
+            position: absolute;
+            font-size: 3rem;
+            bottom: 0px;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 20px 15px 10px 10px;
+        }
+
+        .header {
+            margin: 0;
+            font-size: 3rem;
+            text-align: right;
+            width: 100%;
+            text-transform: capitalize;
+            color: #333
+        }
+
+        /* SLIDE ONE */
+        .imageContainer img {
+            object-fit: contain;
+            min-height: 100%;
+            max-height: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+
+        }
+        
+        .imageContainer {
+            width: 100%;
+            height: calc(100% - 80px);
+            display: flex;
+        }
+
+        .imageSlide {
+            width: 100%;
+            height: 100%;
+        }
+        
+        @media (max-width: 600px){
+            .header {
+                font-size: 2rem;
+            }
+            .number {
+                font-size: 3rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="welcomeSlide">
+        <h1 class="mainHeader">Who is<br><span>Hugh</span>?</h1>
+        <img class="heroImage" src="src/profileShot3.jpg" alt="">
+
+        <!-- BUTTONS -->
+        <div class="buttonContainer">
+            <button class="button button--prev"></button>
+            <button class="button button--next"></button>
+        </div>
+    </div>
+    <div class="slideShowWrapper">
+        <!-- LIVED IN HONG KONG ON A BOAT -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image1--1" src="src/babyHugh.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">1</h3>
+                <h2 class="header">Row-Boating</h2>
+            </div>
+        </div>
+        <!-- LIVED IN HONG KONG ON A BOAT -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image1--2" src="src/boat.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">1</h3>
+                <h2 class="header">Row-Boating</h2>
+            </div>
+        </div>
+        <!-- LIVED IN HONG KONG ON A BOAT -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image1--3" src="src/boatHugh.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">1</h3>
+                <h2 class="header">Row-Boating</h2>
+            </div>
+        </div>
+
+        <!-- 3 -->
+
+
+        <!-- EDUCATION -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image2--1" src="src/primarySchool.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">2</h3>
+                <h2 class="header">Brain things</h2>
+            </div>
+        </div>
+        <!-- EDUCATION -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image2--2" src="src/islandGraduation.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">2</h3>
+                <h2 class="header">Brain things</h2>
+            </div>
+        </div>
+        <!-- EDUCATION -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image2--3" src="src/ocadGrad.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">2</h3>
+                <h2 class="header">Brain things</h2>
+            </div>
+        </div>
+
+        <!-- 6 -->
+
+        <!-- SKIING -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image3--1" src="src/warerSkiingFall.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">3</h3>
+                <h2 class="header">Falling</h2>
+            </div>
+        </div>
+        <!-- SKIING -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image3--2" src="src/warerSkiingFall2.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">3</h3>
+                <h2 class="header">Falling</h2>
+            </div>
+        </div>
+        <!-- SKIING -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image3--3" src="src/warerSkiingFall3.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">3</h3>
+                <h2 class="header">Falling</h2>
+            </div>
+        </div>
+        <!-- SKIING -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image3--4" src="src/waterSkiingArms.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">3</h3>
+                <h2 class="header">NOT Falling</h2>
+            </div>
+        </div>
+
+        <!-- 10 -->
+
+        <!-- SKIING -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image4--1" src="src/tinySkiingHugh.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">4</h3>
+                <h2 class="header">Tiny skiing</h2>
+            </div>
+        </div>
+        <!-- SKIING -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image4--1" src="src/tinySkiingHugh2.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">4</h3>
+                <h2 class="header">Tiny skiing</h2>
+            </div>
+        </div>
+
+        <!-- 12 -->
+
+        <!-- ANIMAL NERD -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image5--1" src="src/harveyAndMugz.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">5</h3>
+                <h2 class="header">harvey + Mugs</h2>
+            </div>
+        </div>
+        <!-- ANIMAL NERD -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image5--2" src="src/jake2.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">5</h3>
+                <h2 class="header">jake</h2>
+            </div>
+        </div>
+        <!-- ANIMAL NERD -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image5--3" src="src/lucy.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">5</h3>
+                <h2 class="header">lucy</h2>
+            </div>
+        </div>
+
+        <!-- 15 -->
+
+        <!-- DRAWINGS -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image6--1" src="src/drawings/duin.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">6</h3>
+                <h2 class="header">Inking</h2>
+            </div>
+        </div>
+        <!-- DRAWINGS -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image6--2" src="src/drawings/madison.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">6</h3>
+                <h2 class="header">Inking</h2>
+            </div>
+        </div>
+
+        <!-- 17 -->
+
+        <!-- BOULDERING -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image7--1" src="src/sports/bouldering.png" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">7</h3>
+                <h2 class="header">Delayed falling</h2>
+            </div>
+        </div>
+
+        <!-- 18 -->
+
+
+
+        <!-- XTREME SPORTS -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image8--1" src="src/sports/cow1.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">8</h3>
+                <h2 class="header">X-Treme Sports</h2>
+            </div>
+        </div>
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image8--1" src="src/sports/cow2.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">8</h3>
+                <h2 class="header">X-Treme Sports</h2>
+            </div>
+        </div>
+
+        <!-- 20 -->
+
+        <!-- THRILL SEEKER -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image9--1" src="src/sports/rollerCoaster.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">9</h3>
+                <h2 class="header">Thrill Seeker</h2>
+            </div>
+        </div>
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image9--2" src="src/sports/rollerCoaster2.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">9</h3>
+                <h2 class="header">Thrill Seeker</h2>
+            </div>
+        </div>
+
+        <!-- 22 -->
+
+        <!-- BOARD GAMES VIDEO GAMES -->
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image10--1" src="src/bucketHugh.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">10</h3>
+                <h2 class="header">Normal</h2>
+            </div>
+        </div>
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image10--2" src="src/smurfHugh.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">10</h3>
+                <h2 class="header">Normal</h2>
+            </div>
+        </div>
+        <div class="slideWrapper">
+            <div class="imageContainer">
+                <img class="image10--3" src="src/familyNormal.jpg" alt="">
+            </div>
+            <div class="textContainer">
+                <h3 class="number">10</h3>
+                <h2 class="header">Normal</h2>
+            </div>
+        </div>
+       
+    </div>
+</body>
+<script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+<script>
+    // VARIABLES
+    let slideCount = 0;
+    
+    const totalSlides = 24;
+    
+    const slideShowWrapper = $('.slideShowWrapper');
+    const next = $('.button--next');
+    const prev = $('.button--prev');
+
+    next.on('click', function(){
+        console.log('next');
+        if (slideCount === totalSlides){
+            slideCount = 0;
+            console.log(slideCount);
+            slideShowWrapper.css('left', `-${slideCount*100}%`);
+        } else {
+            slideCount ++;
+            console.log(slideCount);
+            slideShowWrapper.css('left', `-${slideCount*100}%`);
+        }
+    });
+
+    prev.on('click', function(){
+        console.log('next');
+        if (slideCount === 0){
+            slideCount = totalSlides;
+            console.log(slideCount);
+            slideShowWrapper.css('left', `-${slideCount*100}%`);
+        } else {
+            slideCount --;
+            console.log(slideCount);
+            slideShowWrapper.css('left', `-${slideCount*100}%`);
+        }
+    });
+    
+
+</script>
+</html>
